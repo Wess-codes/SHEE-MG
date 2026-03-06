@@ -1,0 +1,52 @@
+:root {
+  /* Brand Colors */
+  --color-primary: #ea580c; /* Orange (CTA, highlights) */
+  --color-secondary: #1e3a8a; /* Navy (corporate tone) */
+  --color-neutral: #374151; /* Gray (text, icons) */
+  --color-bg: #f9fafb; /* Light background */
+
+  /* Typography */
+  --font-heading: var(--font-heading, "Montserrat", sans-serif);
+  --font-sans: var(--font-sans, "Open Sans", sans-serif);
+  --font-geist-sans: var(--font-geist-sans, sans-serif);
+  --font-geist-mono: var(--font-geist-mono, monospace);
+
+  /* Spacing */
+  --spacing-section-y: 4rem; /* vertical spacing for sections */
+  --spacing-section-x: 1.5rem; /* horizontal padding */
+}
+
+/* Utility Classes */
+.text-primary {
+  color: var(--color-primary);
+}
+.bg-primary {
+  background-color: var(--color-primary);
+}
+.text-secondary {
+  color: var(--color-secondary);
+}
+.bg-secondary {
+  background-color: var(--color-secondary);
+}
+
+/* Section Defaults */
+section {
+  padding: var(--spacing-section-y) var(--spacing-section-x);
+}
+
+/* Headings */
+h1,
+h2,
+h3 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--color-neutral);
+}
+
+/* Body Text */
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-bg);
+  color: var(--color-neutral);
+}
