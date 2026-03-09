@@ -75,7 +75,7 @@ export default function AboutPage() {
       {/* ── HERO — full image, short, ocean blue overlay ── */}
       <section className="relative w-full h-[320px] sm:h-[360px] overflow-hidden">
         <Image
-          src="/ah3.jfif"
+          src="/ah3.jpg"
           alt="About SHEE-MG"
           fill
           className="object-cover object-center"
