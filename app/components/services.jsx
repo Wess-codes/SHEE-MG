@@ -61,70 +61,6 @@ const services = [
   },
 ];
 
-// Additional permit classes for the expandable info panel
-const allPermitClasses = [
-  {
-    code: "A",
-    label: "Prospecting & Mining",
-    desc: "For individuals engaging in mining or mineral exploration.",
-  },
-  {
-    code: "B",
-    label: "Agriculture & Animal Husbandry",
-    desc: "For investors in agriculture or animal husbandry.",
-  },
-  {
-    code: "C",
-    label: "Prescribed Profession",
-    desc: "For professionals (e.g., doctors, engineers, lawyers, architects) intending to work independently.",
-  },
-  {
-    code: "D",
-    label: "Employment",
-    desc: "The most common permit, for individuals with specific skills not readily available in Kenya, employed by a specific employer.",
-  },
-  {
-    code: "F",
-    label: "Specific Manufacturing",
-    desc: "For investors in specific manufacturing ventures.",
-  },
-  {
-    code: "G",
-    label: "Specific Trade / Consultancy",
-    desc: "For investors in specific trades, businesses, or consultancies.",
-  },
-  {
-    code: "I",
-    label: "Religious / Charitable",
-    desc: "For missionaries or members of religious or charitable organizations.",
-  },
-  {
-    code: "K",
-    label: "Ordinary Residents",
-    desc: "For individuals with adequate income, usually over 35, not seeking employment.",
-  },
-  {
-    code: "M",
-    label: "Refugees",
-    desc: "For recognized refugees living in Kenya.",
-  },
-  {
-    code: "N",
-    label: "Digital Nomad",
-    desc: "For foreign nationals employed by companies outside Kenya. (New)",
-  },
-  {
-    code: "P",
-    label: "Diplomatic / NGO",
-    desc: "For staff of UN, diplomatic missions, and international NGOs. (New)",
-  },
-  {
-    code: "Q",
-    label: "Religious / Charitable Professionals",
-    desc: "For professionals working for religious or charitable organizations. (New)",
-  },
-];
-
 export default function ServicesGrid() {
   const cardsRef = useRef([]);
 
@@ -222,12 +158,44 @@ export default function ServicesGrid() {
 
         {/* Cards — 4 cols on lg, 2 on md, 1 on sm */}
         <div className="max-w-6xl mx-auto px-6 sm:px-12 lg:px-20">
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {services.map((svc, i) => (
+          {/* Row 1: 4 cards */}
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
+            {services.slice(0, 4).map((svc, i) => (
               <div
                 key={svc.title}
                 ref={(el) => (cardsRef.current[i] = el)}
                 className="svc-card bg-white border border-gray-100 rounded-2xl p-6 flex flex-col shadow-sm"
+              >
+                <div className="icon-wrap">
+                  <svc.icon />
+                </div>
+                <h3
+                  className={`${montserrat.className} text-base font-bold text-[#0B132B] mb-2`}
+                >
+                  {svc.title}
+                </h3>
+                <p
+                  className={`${openSans.className} text-sm text-gray-500 leading-relaxed mb-4`}
+                >
+                  {svc.desc}
+                </p>
+                <a
+                  href={svc.href}
+                  className={`${openSans.className} learn-link text-sm`}
+                >
+                  Learn more <ArrowRight />
+                </a>
+              </div>
+            ))}
+          </div>
+
+          {/* Row 2: 3 cards — centred */}
+          <div className="flex flex-wrap justify-center gap-6">
+            {services.slice(4).map((svc, i) => (
+              <div
+                key={svc.title}
+                ref={(el) => (cardsRef.current[4 + i] = el)}
+                className="svc-card bg-white border border-gray-100 rounded-2xl p-6 flex flex-col shadow-sm w-full sm:w-[calc(50%-12px)] lg:w-[calc(25%-18px)]"
               >
                 <div className="icon-wrap">
                   <svc.icon />
@@ -260,42 +228,6 @@ export default function ServicesGrid() {
             >
               View all services <ArrowRight className="w-4 h-4" />
             </a>
-          </div>
-
-          {/* All Permit Classes Reference Table */}
-          <div className="border border-gray-100 rounded-2xl overflow-hidden shadow-sm">
-            <div className="bg-[#0B132B] px-6 py-4">
-              <h3
-                className={`${montserrat.className} text-white font-bold text-lg`}
-              >
-                Kenya Work Permit Classes — Full Reference
-              </h3>
-              <p className={`${openSans.className} text-gray-300 text-sm mt-1`}>
-                Issued by the Directorate of Immigration Services
-              </p>
-            </div>
-            <div className="divide-y divide-gray-50">
-              {allPermitClasses.map((p) => (
-                <div
-                  key={p.code}
-                  className="permit-row flex items-start gap-4 px-6 py-4 transition-colors"
-                >
-                  <span className="permit-badge">{p.code}</span>
-                  <div>
-                    <p
-                      className={`${montserrat.className} text-sm font-bold text-[#0B132B]`}
-                    >
-                      Class {p.code} — {p.label}
-                    </p>
-                    <p
-                      className={`${openSans.className} text-sm text-gray-500 mt-0.5`}
-                    >
-                      {p.desc}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
           </div>
         </div>
       </section>
