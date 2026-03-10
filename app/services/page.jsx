@@ -1,7 +1,7 @@
 import ServicesIcons from "../components/ServicesIcons";
 import ProcessDiagram from "../components/ProcessDiagram";
 import BrochureDownload from "../components/BrochureDownload";
-import WorkPermitClasses from "../components/WorkPermitClasses";
+import WorkPermitClasses from "../components/Workpermitclasses";
 
 export default function ServicesPage() {
   return (
