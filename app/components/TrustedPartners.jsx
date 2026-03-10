@@ -10,13 +10,14 @@ const montserrat = Montserrat({
 
 const partners = [
   { src: "/img1.jpg", alt: "AWS" },
-  { src: "/img2.png", alt: "Google" },
-  { src: "/img3.jfif", alt: "Microsoft" },
+  { src: "/img2.jpeg", alt: "Google" },
+  { src: "/img3.png", alt: "Microsoft" },
   { src: "/img4.png", alt: "ISO Certified" },
   { src: "/img5.jfif", alt: "Kenya Government" },
   { src: "/img6.png", alt: "Partner 1" },
   { src: "/img7.png", alt: "Partner 2" },
   { src: "/img8.png", alt: "Partner 3" },
+  { src: "/img9.jfif", alt: "Partner 4" },
 ];
 
 // Duplicate for seamless infinite scroll
