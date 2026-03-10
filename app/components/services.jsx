@@ -135,7 +135,7 @@ export default function ServicesGrid() {
         .permit-row:hover { background: #f9fafb; }
       `}</style>
 
-      <section className="bg-white pb-16 overflow-hidden">
+      <section className="bg-white pb-6 overflow-hidden">
         {/* Header banner */}
         <div className="bg-[#0B132B] py-14 px-12 sm:px-16 lg:px-20 text-center mb-12">
           <p
@@ -221,7 +221,7 @@ export default function ServicesGrid() {
           </div>
 
           {/* CTA */}
-          <div className="text-center mt-10 mb-16">
+          <div className="text-center mt-10 mb-4">
             <a
               href="/services"
               className={`${openSans.className} inline-flex items-center gap-1.5 text-base font-semibold text-[#0B132B] hover:text-orange-600 transition-colors`}

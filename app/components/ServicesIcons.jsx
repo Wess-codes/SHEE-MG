@@ -1,7 +1,16 @@
 "use client";
 
 import { Montserrat, Open_Sans } from "next/font/google";
-import { Briefcase, Users, Building, Clock, ArrowRight } from "lucide-react";
+import {
+  Briefcase,
+  Building,
+  Star,
+  Globe,
+  Users,
+  Shield,
+  Award,
+  ArrowRight,
+} from "lucide-react";
 import { useEffect, useRef } from "react";
 
 const montserrat = Montserrat({ subsets: ["latin"], weight: ["600", "700"] });
@@ -10,27 +19,45 @@ const openSans = Open_Sans({ subsets: ["latin"], weight: ["400", "600"] });
 const services = [
   {
     icon: Briefcase,
-    title: "Work Permits",
-    desc: "End-to-end processing of Class D, G, and other work permits for expatriate employees ensuring full legal compliance.",
+    title: "Work Permit (Class D)",
+    desc: "End-to-end processing of Class D employment permits for skilled expatriates whose expertise is not readily available in Kenya, issued for a specific employer.",
     href: "/services#work-permits",
   },
   {
-    icon: Users,
-    title: "Dependent Passes",
-    desc: "Facilitating the relocation of families by processing dependent passes for spouses and children efficiently.",
-    href: "/services#dependent-passes",
-  },
-  {
     icon: Building,
-    title: "Investor Permits",
-    desc: "Specialized support for international investors seeking Class G permits to establish businesses in Kenya.",
+    title: "Investor Permit (Class G)",
+    desc: "Specialized support for international investors seeking Class G permits to establish or operate specific trades, businesses, or consultancies in Kenya.",
     href: "/services#investor-permits",
   },
   {
-    icon: Clock,
+    icon: Star,
     title: "Special Passes",
-    desc: "Expedited processing for short-term assignments, ensuring your team can start working without delay.",
+    desc: "Expedited processing for short-term assignments and project-based engagements, ensuring your team can begin work without delay.",
     href: "/services#special-passes",
+  },
+  {
+    icon: Globe,
+    title: "ETA",
+    desc: "Electronic Travel Authorization processing for visitors and short-stay applicants, enabling fast, paperless entry into Kenya.",
+    href: "/services#eta",
+  },
+  {
+    icon: Users,
+    title: "Dependent Pass",
+    desc: "Facilitating the relocation of families by processing dependent passes for spouses and children of permit holders efficiently.",
+    href: "/services#dependent-passes",
+  },
+  {
+    icon: Shield,
+    title: "Permanent Residence",
+    desc: "Comprehensive guidance for qualifying expatriates seeking permanent residency status in Kenya, including Class K and long-term resident pathways.",
+    href: "/services#permanent-residence",
+  },
+  {
+    icon: Award,
+    title: "Citizenship",
+    desc: "Advisory and application support for eligible individuals pursuing Kenyan citizenship through naturalization or registration.",
+    href: "/services#citizenship",
   },
 ];
 
@@ -62,9 +89,12 @@ export default function ServicesIcons() {
         }
         .svc-card.is-visible { opacity: 1; transform: translateY(0); }
         .svc-card:nth-child(1) { transition-delay: 0s; }
-        .svc-card:nth-child(2) { transition-delay: 0.1s; }
-        .svc-card:nth-child(3) { transition-delay: 0.2s; }
-        .svc-card:nth-child(4) { transition-delay: 0.3s; }
+        .svc-card:nth-child(2) { transition-delay: 0.08s; }
+        .svc-card:nth-child(3) { transition-delay: 0.16s; }
+        .svc-card:nth-child(4) { transition-delay: 0.24s; }
+        .svc-card:nth-child(5) { transition-delay: 0.32s; }
+        .svc-card:nth-child(6) { transition-delay: 0.40s; }
+        .svc-card:nth-child(7) { transition-delay: 0.48s; }
         .svc-card:hover {
           box-shadow: 0 16px 40px rgba(0,0,0,0.10);
           transform: translateY(-6px) !important;
@@ -95,22 +125,21 @@ export default function ServicesIcons() {
         .svc-card:hover .learn-link svg { transform: translateX(3px); }
       `}</style>
 
-      <section className="bg-white pt-40 pb-16 overflow-hidden">
+      <section className="bg-white pt-40 pb-6 overflow-hidden">
         <div className="max-w-6xl mx-auto px-12 sm:px-16 lg:px-20">
           {/* Title */}
           <div className="mb-10">
-            <p
-              className={`${openSans.className} text-xs font-semibold tracking-widest uppercase text-orange-600 mb-3`}
-            ></p>
             <h1
               className={`${montserrat.className} text-4xl md:text-5xl text-center font-bold text-[#0B132B] leading-tight`}
             >
               Our Services
             </h1>
-            <div className="w-12 h-[3px] bg-orange-500 rounded-full mx-auto mb-5" />
+            <div className="w-12 h-[3px] bg-orange-500 rounded-full mx-auto mb-5 mt-3" />
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {services.map((svc, i) => (
+
+          {/* Row 1: 4 cards */}
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
+            {services.slice(0, 4).map((svc, i) => (
               <div
                 key={svc.title}
                 ref={(el) => (cardsRef.current[i] = el)}
@@ -139,14 +168,35 @@ export default function ServicesIcons() {
             ))}
           </div>
 
-          {/* CTA */}
-          <div className="text-center mt-10">
-            <a
-              href="/services"
-              className={`${openSans.className} inline-flex items-center gap-1.5 text-base font-semibold text-[#0B132B] hover:text-orange-600 transition-colors`}
-            >
-              View all services <ArrowRight className="w-4 h-4" />
-            </a>
+          {/* Row 2: 3 cards — centred */}
+          <div className="flex flex-wrap justify-center gap-6">
+            {services.slice(4).map((svc, i) => (
+              <div
+                key={svc.title}
+                ref={(el) => (cardsRef.current[4 + i] = el)}
+                className="svc-card bg-white border border-gray-100 rounded-2xl p-6 flex flex-col shadow-sm w-full sm:w-[calc(50%-12px)] lg:w-[calc(25%-18px)]"
+              >
+                <div className="icon-wrap">
+                  <svc.icon />
+                </div>
+                <h3
+                  className={`${montserrat.className} text-base font-bold text-[#0B132B] mb-2`}
+                >
+                  {svc.title}
+                </h3>
+                <p
+                  className={`${openSans.className} text-sm md:text-base text-gray-500 leading-relaxed mb-4`}
+                >
+                  {svc.desc}
+                </p>
+                <a
+                  href={svc.href}
+                  className={`${openSans.className} learn-link text-sm md:text-base`}
+                >
+                  Learn more <ArrowRight />
+                </a>
+              </div>
+            ))}
           </div>
         </div>
       </section>
