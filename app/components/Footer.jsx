@@ -17,30 +17,43 @@ export default function Footer() {
           display: block;
           margin-bottom: 10px;
         }
-        .footer-link:hover { color: #fff; }
+
+        .footer-link:hover {
+          color: #ffffff;
+        }
+
         .footer-col-title {
           font-size: 13px;
           font-weight: 700;
           letter-spacing: 0.1em;
           text-transform: uppercase;
-          color: #fff;
+          color: #ffffff;
           margin-bottom: 16px;
         }
+
         .social-btn {
-          width: 34px; height: 34px;
+          width: 34px;
+          height: 34px;
           border-radius: 50%;
           border: 1px solid rgba(255,255,255,0.15);
-          display: flex; align-items: center; justify-content: center;
+          display: flex;
+          align-items: center;
+          justify-content: center;
           color: #9ca3af;
           font-size: 14px;
-          transition: border-color 0.2s, color 0.2s;
+          transition: border-color 0.2s, color 0.2s, transform 0.2s;
         }
-        .social-btn:hover { border-color: #ea580c; color: #ea580c; }
+
+        .social-btn:hover {
+          border-color: #ea580c;
+          color: #ea580c;
+          transform: translateY(-2px);
+        }
       `}</style>
 
       <footer className={`${openSans.className} bg-[#0B132B] pt-14 pb-8`}>
         <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Main grid */}
+          {/* Main Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
             {/* Brand */}
             <div>
@@ -48,44 +61,54 @@ export default function Footer() {
                 <div className="bg-orange-600 text-white w-8 h-8 flex items-center justify-center rounded font-bold text-sm flex-shrink-0">
                   S
                 </div>
+
                 <span
                   className={`${montserrat.className} text-white font-bold text-base tracking-wide`}
                 >
                   SHEE-MG.
                 </span>
               </Link>
+
               <p className="text-gray-400 text-base leading-relaxed mb-5">
                 Your trusted partner for immigration and expatriate services in
                 Kenya. Professional, compliant, and efficient solutions for
                 businesses and individuals.
               </p>
+
               <div className="flex items-center gap-2">
                 <a
                   href="https://linkedin.com"
+                  aria-label="LinkedIn"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="social-btn"
                 >
                   <FaLinkedin />
                 </a>
+
                 <a
                   href="https://twitter.com"
+                  aria-label="Twitter"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="social-btn"
                 >
                   <FaTwitter />
                 </a>
+
                 <a
                   href="https://facebook.com"
+                  aria-label="Facebook"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="social-btn"
                 >
                   <FaFacebook />
                 </a>
+
                 <a
                   href="https://instagram.com"
+                  aria-label="Instagram"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="social-btn"
@@ -98,6 +121,7 @@ export default function Footer() {
             {/* Quick Links */}
             <div>
               <p className="footer-col-title">Quick Links</p>
+
               <Link href="/" className="footer-link">
                 Home
               </Link>
@@ -107,27 +131,31 @@ export default function Footer() {
               <Link href="/services" className="footer-link">
                 Services
               </Link>
-
               <Link href="/contact" className="footer-link">
                 Contact Us
               </Link>
             </div>
 
-            {/* Our Services */}
+            {/* Services */}
             <div>
               <p className="footer-col-title">Our Services</p>
+
               <Link href="/services#work-permits" className="footer-link">
                 Work Permits (Class D)
               </Link>
+
               <Link href="/services#investor-permits" className="footer-link">
                 Investor Permits (Class G)
               </Link>
+
               <Link href="/services#dependent-passes" className="footer-link">
                 Dependent Passes
               </Link>
+
               <Link href="/services#special-passes" className="footer-link">
                 Special Passes
               </Link>
+
               <Link
                 href="/services#permanent-residence"
                 className="footer-link"
@@ -136,9 +164,10 @@ export default function Footer() {
               </Link>
             </div>
 
-            {/* Contact Us */}
+            {/* Contact */}
             <div>
               <p className="footer-col-title">Contact Us</p>
+
               <div className="space-y-4">
                 <div className="flex items-start gap-3">
                   <MapPin className="w-4 h-4 text-orange-500 mt-1 flex-shrink-0" />
@@ -148,6 +177,16 @@ export default function Footer() {
                     Kenyatta Avenue, Nairobi
                   </p>
                 </div>
+
+                <div className="flex items-start gap-3">
+                  <MapPin className="w-4 h-4 text-orange-500 mt-1 flex-shrink-0" />
+                  <p className="text-gray-400 text-base leading-snug">
+                    2nd Floor, Mountain Mall,
+                    <br />
+                    Thika Road, Nairobi
+                  </p>
+                </div>
+
                 <div className="flex items-center gap-3">
                   <Phone className="w-4 h-4 text-orange-500 flex-shrink-0" />
                   <a
@@ -157,6 +196,7 @@ export default function Footer() {
                     +254 725 371360
                   </a>
                 </div>
+
                 <div className="flex items-center gap-3">
                   <Mail className="w-4 h-4 text-orange-500 flex-shrink-0" />
                   <a
@@ -170,11 +210,12 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Bottom bar */}
+          {/* Bottom Bar */}
           <div className="border-t border-white/10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3">
             <p className="text-gray-500 text-sm">
               © 2026 SHEE-MG Ltd. All rights reserved.
             </p>
+
             <div className="flex items-center gap-5">
               <Link
                 href="/privacy"
@@ -182,6 +223,7 @@ export default function Footer() {
               >
                 Privacy Policy
               </Link>
+
               <Link
                 href="/terms"
                 className="text-gray-500 text-sm hover:text-gray-300 transition"

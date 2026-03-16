@@ -32,6 +32,12 @@ const contactDetails = [
     value: "2nd Floor, Hughes Building, Kenyatta Avenue, Nairobi",
     href: "https://maps.google.com/?q=Hughes+Building+Kenyatta+Avenue+Nairobi",
   },
+  {
+    Icon: MapPin,
+    label: "Branch Office",
+    value: "2nd Floor, Mountain Mall, Thika Road, Nairobi",
+    href: "https://maps.google.com/?cid=17653097262655609594&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQ",
+  },
 ];
 
 export default function ContactPage() {
