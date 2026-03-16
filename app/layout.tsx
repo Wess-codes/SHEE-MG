@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     locale: "en_KE",
     type: "website",
   }, icons: {
-    icon: "favicon.ico",
+    icon: "shee.ico",
   },
 };
 export default function RootLayout({
