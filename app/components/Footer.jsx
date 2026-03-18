@@ -17,11 +17,7 @@ export default function Footer() {
           display: block;
           margin-bottom: 10px;
         }
-
-        .footer-link:hover {
-          color: #ffffff;
-        }
-
+        .footer-link:hover { color: #ffffff; }
         .footer-col-title {
           font-size: 13px;
           font-weight: 700;
@@ -30,7 +26,6 @@ export default function Footer() {
           color: #ffffff;
           margin-bottom: 16px;
         }
-
         .social-btn {
           width: 34px;
           height: 34px;
@@ -43,7 +38,6 @@ export default function Footer() {
           font-size: 14px;
           transition: border-color 0.2s, color 0.2s, transform 0.2s;
         }
-
         .social-btn:hover {
           border-color: #ea580c;
           color: #ea580c;
@@ -53,7 +47,6 @@ export default function Footer() {
 
       <footer className={`${openSans.className} bg-[#0B132B] pt-14 pb-8`}>
         <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Main Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
             {/* Brand */}
             <div>
@@ -61,20 +54,17 @@ export default function Footer() {
                 <div className="bg-orange-600 text-white w-8 h-8 flex items-center justify-center rounded font-bold text-sm flex-shrink-0">
                   S
                 </div>
-
                 <span
                   className={`${montserrat.className} text-white font-bold text-base tracking-wide`}
                 >
                   SHEE-MG.
                 </span>
               </Link>
-
               <p className="text-gray-400 text-base leading-relaxed mb-5">
                 Your trusted partner for immigration and expatriate services in
                 Kenya. Professional, compliant, and efficient solutions for
                 businesses and individuals.
               </p>
-
               <div className="flex items-center gap-2">
                 <a
                   href="https://linkedin.com"
@@ -85,7 +75,6 @@ export default function Footer() {
                 >
                   <FaLinkedin />
                 </a>
-
                 <a
                   href="https://twitter.com"
                   aria-label="Twitter"
@@ -95,7 +84,6 @@ export default function Footer() {
                 >
                   <FaTwitter />
                 </a>
-
                 <a
                   href="https://facebook.com"
                   aria-label="Facebook"
@@ -105,7 +93,6 @@ export default function Footer() {
                 >
                   <FaFacebook />
                 </a>
-
                 <a
                   href="https://instagram.com"
                   aria-label="Instagram"
@@ -121,11 +108,10 @@ export default function Footer() {
             {/* Quick Links */}
             <div>
               <p className="footer-col-title">Quick Links</p>
-
               <Link href="/" className="footer-link">
                 Home
               </Link>
-              <Link href="/about" className="footer-link">
+              <Link href="/info" className="footer-link">
                 About Us
               </Link>
               <Link href="/services" className="footer-link">
@@ -139,23 +125,18 @@ export default function Footer() {
             {/* Services */}
             <div>
               <p className="footer-col-title">Our Services</p>
-
               <Link href="/services#work-permits" className="footer-link">
                 Work Permits (Class D)
               </Link>
-
               <Link href="/services#investor-permits" className="footer-link">
                 Investor Permits (Class G)
               </Link>
-
               <Link href="/services#dependent-passes" className="footer-link">
                 Dependent Passes
               </Link>
-
               <Link href="/services#special-passes" className="footer-link">
                 Special Passes
               </Link>
-
               <Link
                 href="/services#permanent-residence"
                 className="footer-link"
@@ -167,7 +148,6 @@ export default function Footer() {
             {/* Contact */}
             <div>
               <p className="footer-col-title">Contact Us</p>
-
               <div className="space-y-4">
                 <div className="flex items-start gap-3">
                   <MapPin className="w-4 h-4 text-orange-500 mt-1 flex-shrink-0" />
@@ -177,7 +157,6 @@ export default function Footer() {
                     Kenyatta Avenue, Nairobi
                   </p>
                 </div>
-
                 <div className="flex items-start gap-3">
                   <MapPin className="w-4 h-4 text-orange-500 mt-1 flex-shrink-0" />
                   <p className="text-gray-400 text-base leading-snug">
@@ -186,7 +165,6 @@ export default function Footer() {
                     Thika Road, Nairobi
                   </p>
                 </div>
-
                 <div className="flex items-center gap-3">
                   <Phone className="w-4 h-4 text-orange-500 flex-shrink-0" />
                   <a
@@ -196,14 +174,13 @@ export default function Footer() {
                     +254 725 371360
                   </a>
                 </div>
-
                 <div className="flex items-center gap-3">
                   <Mail className="w-4 h-4 text-orange-500 flex-shrink-0" />
                   <a
-                    href="mailto:info@shee-mg.com"
+                    href="mailto:info@shee-mg.co.ke"
                     className="text-gray-400 text-base hover:text-white transition"
                   >
-                    info@shee-mg.com
+                    info@shee-mg.co.ke
                   </a>
                 </div>
               </div>
@@ -211,26 +188,10 @@ export default function Footer() {
           </div>
 
           {/* Bottom Bar */}
-          <div className="border-t border-white/10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3">
+          <div className="border-t border-white/10 pt-6 flex items-center justify-center">
             <p className="text-gray-500 text-sm">
               © 2026 SHEE-MG Ltd. All rights reserved.
             </p>
-
-            <div className="flex items-center gap-5">
-              <Link
-                href="/privacy"
-                className="text-gray-500 text-sm hover:text-gray-300 transition"
-              >
-                Privacy Policy
-              </Link>
-
-              <Link
-                href="/terms"
-                className="text-gray-500 text-sm hover:text-gray-300 transition"
-              >
-                Terms of Service
-              </Link>
-            </div>
           </div>
         </div>
       </footer>
