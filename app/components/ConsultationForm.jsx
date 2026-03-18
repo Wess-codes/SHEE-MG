@@ -7,8 +7,37 @@ const montserrat = Montserrat({ subsets: ["latin"], weight: ["600", "700"] });
 const openSans = Open_Sans({ subsets: ["latin"], weight: ["400", "600"] });
 
 export default function ConsultationForm() {
-  const [email, setEmail] = useState("");
-  const [service, setService] = useState("");
+  const [form, setForm] = useState({ email: "", service: "" });
+  const [status, setStatus] = useState("");
+
+  const handleChange = (e) =>
+    setForm({ ...form, [e.target.name]: e.target.value });
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!form.email || !form.service) return;
+    setStatus("sending");
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: "Website Visitor",
+          email: form.email,
+          phone: "N/A",
+          message: `Service requested: ${form.service}`,
+        }),
+      });
+      if (res.ok) {
+        setStatus("success");
+        setForm({ email: "", service: "" });
+      } else {
+        setStatus("error");
+      }
+    } catch {
+      setStatus("error");
+    }
+  };
 
   return (
     <>
@@ -20,7 +49,6 @@ export default function ConsultationForm() {
           max-width: 560px;
           margin: 0 auto;
         }
-
         .cta-input {
           width: 100%;
           background: transparent;
@@ -37,7 +65,6 @@ export default function ConsultationForm() {
         .cta-input::placeholder { color: rgba(255,255,255,0.45); }
         .cta-input:focus { border-color: rgba(255,255,255,0.7); }
         .cta-input option { background: #1a1a2e; color: #fff; }
-
         .cta-btn {
           width: 100%;
           background: #ea580c;
@@ -53,11 +80,11 @@ export default function ConsultationForm() {
         }
         .cta-btn:hover { background: #c2410c; transform: translateY(-1px); }
         .cta-btn:active { transform: translateY(0); }
+        .cta-btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
       `}</style>
 
       <section className="bg-[#f4f6f9] py-16 px-6">
         <div className="cta-card">
-          {/* Heading */}
           <div className="text-center mb-8">
             <h2
               className={`${montserrat.className} text-2xl md:text-3xl font-bold text-white leading-tight mb-3`}
@@ -68,38 +95,56 @@ export default function ConsultationForm() {
               className={`${openSans.className} text-sm text-gray-300 leading-relaxed`}
             >
               Book a free 15-minute consultation with our experts to discuss
-              your specific needs and how we can assist you.
+              your specific needs.
             </p>
           </div>
 
-          {/* Form */}
-          <div className="space-y-3">
+          <form onSubmit={handleSubmit} className="space-y-3">
             <input
               type="email"
+              name="email"
               placeholder="Enter your email address"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              value={form.email}
+              onChange={handleChange}
               className={`${openSans.className} cta-input`}
+              required
             />
 
             <select
-              value={service}
-              onChange={(e) => setService(e.target.value)}
+              name="service"
+              value={form.service}
+              onChange={handleChange}
               className={`${openSans.className} cta-input`}
+              required
             >
               <option value="" disabled>
                 Select service needed
               </option>
-              <option value="work">Work Permit</option>
-              <option value="investor">Investor Permit</option>
-              <option value="dependent">Dependent Pass</option>
-              <option value="special">Special Pass</option>
+              <option value="Work Permit">Work Permit</option>
+              <option value="Investor Permit">Investor Permit</option>
+              <option value="Dependent Pass">Dependent Pass</option>
+              <option value="Special Pass">Special Pass</option>
             </select>
 
-            <button type="button" className={`${montserrat.className} cta-btn`}>
-              Request Consultation
+            {status === "success" && (
+              <p className="text-green-400 text-sm text-center">
+                ✓ Request sent! We`&rsquo;ll be in touch soon.
+              </p>
+            )}
+            {status === "error" && (
+              <p className="text-red-400 text-sm text-center">
+                Something went wrong. Please try again.
+              </p>
+            )}
+
+            <button
+              type="submit"
+              disabled={status === "sending"}
+              className={`${montserrat.className} cta-btn`}
+            >
+              {status === "sending" ? "Sending..." : "Request Consultation"}
             </button>
-          </div>
+          </form>
         </div>
       </section>
     </>
