@@ -22,10 +22,10 @@ export default function ConsultationForm() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          name: "Website Visitor",
+          name: form.name || "Website Visitor",
           email: form.email,
-          phone: "N/A",
-          message: `Service requested: ${form.service}`,
+          phone: form.phone || "N/A",
+          message: form.message,
         }),
       });
       if (res.ok) {
