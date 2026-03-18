@@ -85,7 +85,7 @@ const permits = [
   },
 ];
 
-export default function WorkPermitClasses() {
+export default function PermitClasses() {
   const itemsRef = useRef([]);
 
   useEffect(() => {
