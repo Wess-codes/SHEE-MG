@@ -7,7 +7,7 @@ export async function POST(req) {
 
   try {
     const data = await resend.emails.send({
-      from: "SHEE-MG Website <noreply@shee-mg.co.ke>",
+      from: "SHEE-MG Website <onboarding@resend.dev>",
       to: "info@shee-mg.co.ke",
       replyTo: email,
       subject: `New Consultation Request from ${name}`,
