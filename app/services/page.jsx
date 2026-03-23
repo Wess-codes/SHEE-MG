@@ -9,6 +9,7 @@ export const metadata = {
   description:
     "SHEE-MG Ltd offers expert immigration services in Kenya including Class D work permits, Class G investor permits, dependent passes, special passes and permanent residence. Fast, compliant processing in Nairobi.",
   keywords: [
+    "passport application Kenya",
     "work permit Kenya",
     "Class D work permit Kenya",
     "Class G investor permit Kenya",
@@ -34,8 +35,8 @@ export default function ServicesPage() {
     <main>
       <ServicesIcons />
       <ProcessDiagram />
-      <BrochureDownload />
       <PermitClasses />
+      <BrochureDownload />
     </main>
   );
 }
