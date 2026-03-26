@@ -35,6 +35,11 @@ export const metadata: Metadata = {
   description: "Kenya's trusted immigration consultancy. Work permits, investor permits, dependent passes and more.",
   keywords: ["immigration Kenya", "work permits Kenya", "expatriate services Nairobi"],
   metadataBase: new URL("https://www.shee-mg.co.ke"),
+
+  alternates: {
+    canonical: "/",
+  },
+    
   openGraph: {
     title: "SHEE-MG | Immigration & Expatriate Solutions",
     description: "Kenya's trusted immigration consultancy.",
